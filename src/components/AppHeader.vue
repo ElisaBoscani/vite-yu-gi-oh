@@ -25,6 +25,9 @@
 </template>
 
 <style scoped>
+header{
+  background-color: white;
+}
 img{
   width: 50px;
 }
