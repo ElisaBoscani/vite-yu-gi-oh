@@ -36,7 +36,7 @@ export default {
           :cardinfo="cardinfo"
           v-for="cardinfo in store.cardinfo"
         ></CardItem>
-        >
+
         <!--  <div class="col" v-for="item in store.cardinfo">
           <div class="card">
             <img
@@ -57,10 +57,7 @@ export default {
       </div>
     </div>
   </section>
-  <div
-    v-else
-    class="d-flex justify-content-center align-content-center p-5 flex-column"
-  >
+  <div v-else class="d-flex align-items-center p-5 flex-column">
     <div>
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -88,12 +85,12 @@ export default {
 
 <style lang="scss" scoped>
 @use "../assets/scss/variables" as *;
-.card_botton {
+/* .card_botton {
   aspect-ratio: 1/1;
   object-fit: cover;
   width: 100%;
 }
 .bg {
   background-color: $yu-gi_oh-primary;
-}
+} */
 </style>

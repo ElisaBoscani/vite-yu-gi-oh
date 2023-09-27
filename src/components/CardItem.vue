@@ -1,15 +1,14 @@
 <script>
-import { store } from "../store";
 export default {
   name: "CardItem",
-  props: cardinfo,
+  props: { cardinfo: Object },
 };
 </script>
 <template>
   <div class="col">
-    <div class="card">
+    <div class="card h-100">
       <img
-        :src="item.card_images[0].image_url_small"
+        :src="cardinfo.card_images[0].image_url_small"
         class="card-img-top"
         alt="..."
       />
@@ -17,11 +16,22 @@ export default {
         class="bg card-body d-flex flex-column align-items-center card_botton"
       >
         <p class="card-text text-center text-uppercase text-white">
-          {{ item.name }}
+          {{ cardinfo.name }}
         </p>
-        <span>{{ item.archetype }}</span>
+        <span>{{ cardinfo.archetype }}</span>
       </div>
     </div>
   </div>
 </template>
-<style></style>
+
+<style lang="scss" scoped>
+@use "../assets/scss/variables" as *;
+.card_botton {
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  width: 100%;
+}
+.bg {
+  background-color: $yu-gi_oh-primary;
+}
+</style>
