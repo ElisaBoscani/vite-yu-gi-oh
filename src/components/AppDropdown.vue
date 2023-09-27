@@ -1,24 +1,29 @@
-<script></script>
+<script>
+import { store } from "../store.js";
+export default {
+  name: "AppDropdown",
+  emits: ["serch"],
+  data() {
+    return {
+      store,
+      archetype_array: [],
+    };
+  },
+  created() {
+    store.cardData();
+  },
+};
+</script>
 
 <template>
-  <section class="mb-4">
-    <div class="dropdown container pt-3">
-      <a
-        class="btn text-start dropdown-toggle fs-4"
-        href="#"
-        role="button"
-        data-bs-toggle="dropdown"
-        aria-expanded="false"
-      >
-        Alien
-      </a>
-
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">Mostro</a></li>
-        <li><a class="dropdown-item" href="#">Mago</a></li>
-        <li><a class="dropdown-item" href="#">Trappola</a></li>
-      </ul>
-    </div>
+  <section class="mt-4 mb-2 d-flex container">
+    <select class="p-2" @change="$emit('serch')">
+      <option v-for="cardinfo in store.cardinfo">
+        <a class="dropdown-item" href="#">{{ cardinfo.archetype }}</a>
+      </option>
+      <!-- <option><a class="dropdown-item" href="#">Mago</a></option>
+      <option><a class="dropdown-item" href="#">Trappola</a></option> -->
+    </select>
   </section>
 </template>
 
