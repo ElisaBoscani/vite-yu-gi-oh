@@ -1,5 +1,6 @@
 <script>
 import { store } from "../store";
+import CardItem from "./CardItem.vue";
 export default {
   name: "AppCard",
   data() {
@@ -12,7 +13,9 @@ export default {
       return setTimeout(this.cardData(), 5000);
     },
   },
-
+  components: {
+    CardItem,
+  },
   created() {
     store.cardData();
   },
@@ -29,7 +32,12 @@ export default {
       <div
         class="row row-cols-lg-6 row-cols-sm-3 row-cols-md-4 gap-3 justify-content-lg-between justify-content-sm-center justify-content-md-evenly"
       >
-        <div class="col" v-for="item in store.cardinfo">
+        <CardItem
+          :cardinfo="cardinfo"
+          v-for="cardinfo in store.cardinfo"
+        ></CardItem>
+        >
+        <!--  <div class="col" v-for="item in store.cardinfo">
           <div class="card">
             <img
               :src="item.card_images[0].image_url_small"
@@ -45,7 +53,7 @@ export default {
               <span>{{ item.archetype }}</span>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </section>
