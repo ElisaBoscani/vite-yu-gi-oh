@@ -13,24 +13,25 @@ export default {
     AppDropdown,
     AppCard,
   },
-  created() {
-    store.cardData();
-  },
+
   methods: {
     findArchetipe() {
-      const url_arch =
-        "https://db.ygoprodeck.com/api/v7/cardinfo.php" +
-        `&archetype=${store.cardArch}`;
-      store.base_url = url_arch + "&num=20&offset=0";
-
-      console.log(store.base_url);
+      const url = this.store.base_url + `&archetype=${this.store.archetypeTex}`;
+      this.store.cardData(url);
+      console.log("store.base_url:", url);
     },
+  },
+  mounted() {
+    this.store.cardData(this.store.base_url);
+
+    this.store.archetypesDate(this.store.arch_url);
   },
 };
 </script>
 
 <template>
-  <AppDropdown @serch="findArchetipe()"></AppDropdown>
+  <AppDropdown @filter="findArchetipe" />
+
   <AppCard></AppCard>
 </template>
 

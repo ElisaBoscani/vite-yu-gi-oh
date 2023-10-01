@@ -18,7 +18,9 @@ export default {
         <p class="card-text text-center text-uppercase text-white">
           {{ cardinfo.name }}
         </p>
-        <span>{{ cardinfo.archetype }}</span>
+        <span v-show="cardinfo.archetype != null">{{
+          cardinfo.archetype
+        }}</span>
       </div>
     </div>
   </div>

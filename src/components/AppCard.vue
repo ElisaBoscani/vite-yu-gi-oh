@@ -3,6 +3,7 @@ import { store } from "../store";
 import CardItem from "./CardItem.vue";
 export default {
   name: "AppCard",
+  components: { CardItem },
   data() {
     return {
       store,
@@ -13,17 +14,14 @@ export default {
       return setTimeout(this.cardData(), 5000);
     },
   },
-  components: {
+  /*  components: {
     CardItem,
-  },
-  created() {
-    store.cardData();
-  },
+  }, */
 };
 </script>
 
 <template>
-  <section v-if="store.cardinfo">
+  <section v-if="store.cardsInfo">
     <div class="container bg-white p-5">
       <div class="bg-black">
         <p class="text-white p-3 mb-0">Found 39 cards</p>
@@ -34,7 +32,7 @@ export default {
       >
         <CardItem
           :cardinfo="cardinfo"
-          v-for="cardinfo in store.cardinfo"
+          v-for="cardinfo in store.cardsInfo"
         ></CardItem>
 
         <!--  <div class="col" v-for="item in store.cardinfo">
